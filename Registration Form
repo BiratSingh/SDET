@@ -1,0 +1,51 @@
+package Assignment;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Facebook {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+            //Automate Facebook Registration Page using Relative XPath in 2 different
+            //Browsers https://www.facebook.com/
+		
+                WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/login/");
+		
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+		driver.findElement(By.linkText("Sign up for Facebook")).click();
+		Thread.sleep(2000);
+		
+		  driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("Birat");
+		  Thread.sleep(2000);
+		  driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("singh");
+		  Thread.sleep(2000);
+		  
+		  driver.findElement(By.xpath("//input[starts-with(@name,'reg')]")).sendKeys("1234567898");
+		  Thread.sleep(2000);
+
+      driver.findElement(By.xpath("//input[@name='reg_passwd__']")).sendKeys("Astha8797");
+		  Thread.sleep(2000);
+		  
+		  driver.findElement(By.xpath("//select[@name='birthday_day']")).sendKeys("11");
+		  Thread.sleep(2000);
+		 
+		  driver.findElement(By.xpath("//select[@name='birthday_month']")).sendKeys("January");
+		  Thread.sleep(2000);
+		  driver.findElement(By.xpath("//select[@name='birthday_year']")).sendKeys("1998");
+		  Thread.sleep(2000);
+		  
+		  
+		  driver.findElement(By.xpath("(//input[@name='sex'])[2]")).click();
+		  Thread.sleep(2000);
+		  
+		  driver.findElement(By.xpath("//button[@name='websubmit']")).click();
+		  Thread.sleep(2000);
+	}
+
+}
