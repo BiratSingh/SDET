@@ -1,0 +1,39 @@
+package Assignment;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Alerthandling {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.jquery-az.com/javascript/demo.php?ex=151.1_1");
+		
+		WebDriver chromedriver = new ChromeDriver();
+		chromedriver.get("https://www.jquery-az.com/javascript/demo.php?ex=151.1_1");
+		
+		chromedriver.findElement(By.xpath("//button[text()='Click here to show confirm alert']")).click();
+		
+		Alert alert = chromedriver.switchTo().alert();
+		System.out.println("First alert text: "+ alert.getText());
+		Thread.sleep(2000);
+		alert.accept();
+		
+		alert = chromedriver.switchTo().alert();
+        System.out.println("Second alert text: " + alert.getText());
+        Thread.sleep(2000);
+        alert.accept();
+        
+        Thread.sleep(4000);
+        
+        chromedriver.quit();
+        driver.quit();
+        
+
+	}
+
+}
